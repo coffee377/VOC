@@ -1,0 +1,5 @@
+[#ftl]
+[#-- @implicitly included --]
+[#-- @ftlvariable name="sysName" type="java.lang.String" --]
+[#-- @ftlvariable name="webRoot" type="java.lang.String" --]
+[#-- @ftlvariable name="Session.USER" type="com.voc.common.entity.User" --]

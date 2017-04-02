@@ -1,0 +1,74 @@
+﻿
+.cloud_main{ overflow:hidden; width:1200px; margin:0 auto}
+.cloud_03 .l{ width:380px; float:left;height:270px;}
+.cloud_03 .c{ width:380px; float:left;height:270px; margin:0 30px}
+.cloud_03 .r{ width:380px; float:left;height:270px;}
+.cloud_03 .t{ text-align:center; color:#fff; font-size:20px; padding-top:38px}
+.cloud_03 .tt{ font-size:16px; color:#fff; line-height:26px; padding:30px 45px 0}
+.cloud_03 .tt em{ color:#fff; font-size:18px; clear:both; display:block; padding-bottom:5px}
+.cloud_03 .g{ text-align:center; font-size:26px; color:#fff; padding:50px 0 20px; clear:both; display:block}
+.cloud_03 .btn{ clear:both; text-align:center}
+.cloud_04 a{text-indent:-9999px; width:180px; height:50px;position:absolute; bottom:10px; margin-left:100px; }
+.cloud_05 a{text-indent:-9999px; width:180px; height:50px; display:block; clear:both; position:absolute; bottom:0px; margin-left:670px;}
+.cloud_06 a{text-indent:-9999px; width:180px; height:50px; display:block; clear:both; position:absolute; bottom:45px; margin-left:100px}
+.cloud_07 .cloudBox{   overflow:hidden; position:relative; padding-left:80px   }
+.cloud_07 .cloudBox li{ overflow:hidden; width:1040px; margin:172px 0 0 0px } 
+.cloud_07 .cloudBox li .pic{ width:1040px;  overflow:hidden   } 
+.cloud_07 .cloudBox li .pic img{ width:1040px; height:405px } 
+.cloud_07 .cloudBox li  .title{ height:36px; padding-left:250px} 
+.cloudLoop{ overflow:hidden; position:relative;  background:#b0e9e1;border:#6ed3c2 solid 3px  }
+.cloudLoop .hd{ overflow:hidden;  height:34px; background:#f5f5f5; border-bottom:#d6d6d6 solid 1px; line-height:34px; font-size:16px; padding-left:10px   } 
+.cloudLoop .hd .prev,.topLoop .hd .next{ display:block;  width:9px; height:10px; line-height:10px; float:right; margin-right:10px; margin-top:10px;  overflow:hidden;   
+     cursor:pointer; display:none } 
+.cloudLoop .hd .next{  } 
+.cloudLoop .hd ul{ float:right; overflow:hidden; zoom:1; margin-top:10px; display:none } 
+.cloudLoop .hd ul li{ position:relative; _display:inline; float:left;  width:10px; height:10px; overflow:hidden; background:#ccc; margin-right:10px; text-indent:-999px; cursor:pointer; 
+    -webkit-border-radius: 10px; -moz-border-radius: 10px;border-radius:10px; } 
+.cloudLoop .hd ul li.on{ background:#f00;  } 
+.cloudLoop .td{ background:#26b99a; height:40px; line-height:40px; font-size:14px; font-weight:bold; overflow:hidden; color:#fff}
+.cloudLoop .td .l1{ width:190px; text-align:center; border-right:#6ed3c2 solid 1px; float:left}
+.cloudLoop .td .l4{ width:440px; text-align:center; border-right:#6ed3c2 solid 1px; float:left}
+.cloudLoop .td .l5{ width:180px; text-align:center; border-right:#6ed3c2 solid 1px; float:left}
+.cloudLoop .td .l6{ width:170px; text-align:center; border-right:#6ed3c2 solid 1px; float:left}
+.cloudLoop .td .l7{ width:210px; text-align:center; float:left}
+.cloudLoop .bd{    } 
+.cloudLoop .bd ul{ overflow:hidden; zoom:1; } 
+.cloudList ul{ margin:0; padding:0}
+.cloudList li{ line-height:40px; border-bottom:#6ed3c2 solid 1px; height:40px; overflow:hidden; font-size:14px  } 
+.cloudList li .l1{ width:190px; text-align:center; border-right:#6ed3c2 solid 1px; float:left; color:#666;}
+.cloudList li .l4{ width:440px; text-align:center; border-right:#6ed3c2 solid 1px; float:left; color:#666;}
+.cloudList li .l5{ width:180px; text-align:center; border-right:#6ed3c2 solid 1px; float:left; color:#666;}
+.cloudList li .l6{ width:170px; text-align:center; border-right:#6ed3c2 solid 1px; float:left; color:#666;}
+.cloudList li .l7{ width:210px; text-align:center;  float:left; color:#666;}
+.cloud_txt{ background:#f5f5f5; overflow:hidden; width:1200px; margin:0 auto}
+.cloud_txt .t1{ background:#3a3c49; height:74px; line-height:74px; color:#fff; font-size:26px; text-align:center; font-weight:bold;}
+.cloud_txt .tdL{ width:220px; border-right:#ccc solid 1px;border-bottom:#ccc solid 1px;}
+.cloud_txt .tdC{ width:300px; border-right:#ccc solid 1px; font-size:14px; line-height:28px; padding:20px;color:#e2534b;}
+.cloud_txt .tdT{ color:#cc0000;}
+.cloud_txt .tdT strong{ clear:both; display:block}
+.cloud_txt .tdLt{ font-size:22px; text-align:center; font-weight:bold; color:#cc0000; line-height:40px}
+.cloud_txt .tdR{ font-size:16px; padding:15px 20px 15px 20px; line-height:32px; overflow:hidden;border-bottom:#ccc solid 1px}
+.cloud_txt .t2{ background:#e4e4e4; overflow:hidden;}
+.cloud_txt .tl1{ width:33%; float:left}
+.cloud_txt .tl2{ width:50%; float:left}
+.cloud_txt .tcl{ clear:both; display:block}
+.cloud_jd{ width:1170px; margin:0 auto; background:#f5f5f5; padding:20px 0 10px 30px; overflow:hidden}
+.cloud_jd h2{color:#333; font-size:16px;  padding:0px 0px 0px;}
+.cloud_jd span{ background:#eb6559; float:left; padding:3px 0px 5px; font-size:14px; color:#fff; margin:0 0 15px; width:195px; text-align:center}
+.cloud_jd em{ background:#f5f5f5;padding:3px 10px 5px; font-size:14px; float:left}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

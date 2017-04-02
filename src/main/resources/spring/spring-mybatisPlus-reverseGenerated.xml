@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 导入外部属性文件，并指定属性文件的编码格式 -->
+    <context:property-placeholder file-encoding="UTF-8" location="classpath:properties/*.properties"/>
+
+    <bean id="autoGenerator" class="com.baomidou.mybatisplus.generator.AutoGenerator">
+        <!-- 全局 相关配置 -->
+        <property name="globalConfig" ref="globalConfig"/>
+        <!-- 数据源配置 -->
+        <property name="dataSource" ref="dataSourceConfig"/>
+        <!-- 数据库表配置 -->
+        <property name="strategy" ref="strategyConfig"/>
+        <!-- 包 相关配置 -->
+        <property name="packageInfo" ref="packageConfig"/>
+        <!-- 模板 相关配置 -->
+        <property name="template" ref="templateConfig"/>
+        <!-- 自定义配置 -->
+        <property name="cfg" ref="reverseGeneratedConfig"/>
+    </bean>
+
+    <!-- 全局 相关配置 -->
+    <bean id="globalConfig" class="com.baomidou.mybatisplus.generator.config.GlobalConfig">
+        <!-- 反向生成文件的输出目录 【默认 D 盘根目录】 -->
+        <property name="outputDir" value="src/main/java"/>
+        <!-- 是否覆盖已有文件 默认 false -->
+        <property name="fileOverride" value="true"/>
+        <!-- 是否开启 ActiveRecord 模式 默认 true -->
+        <property name="activeRecord" value="false"/>
+        <!-- 是否在xml中添加二级缓存配置 默认 true -->
+        <property name="enableCache" value="true"/>
+        <!-- 是否开启 BaseResultMap 默认 false -->
+        <property name="baseResultMap" value="true"/>
+        <!-- 是否开启 baseColumnList 默认 false -->
+        <property name="baseColumnList" value="true"/>
+        <!-- 开发人员 -->
+        <property name="author" value="coffee377"/>
+        <!-- 是否打开输出目录 默认 true -->
+        <property name="open" value="false"/>
+        <!-- 各层文件名称方式，例如： %sAction 生成 UserAction -->
+        <property name="mapperName" value="%sDao"/>
+        <property name="xmlName" value="%sDao"/>
+        <property name="serviceName" value="%sService"/>
+        <property name="serviceImplName" value="%sServiceImpl"/>
+        <property name="controllerName" value="%sController"/>
+    </bean>
+
+    <!-- 数据源配置 -->
+    <bean id="dataSourceConfig" class="com.baomidou.mybatisplus.generator.config.DataSourceConfig">
+        <!-- MYSQL, ORACLE, SQL_SERVER, POSTGRE_SQL -->
+        <property name="dbType" value="MYSQL"/>
+        <property name="driverName" value="${jdbc.driverClass}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <!-- 数据库表配置 -->
+    <bean id="strategyConfig" class="com.baomidou.mybatisplus.generator.config.StrategyConfig">
+        <!-- 数据库中表前缀 【数组】，生成实体类似自动去除前缀 -->
+        <property name="tablePrefix">
+            <list>
+                <value>sys</value>
+                <value>test</value>
+            </list>
+        </property>
+        <!-- 数据库表映射到实体的命名策略
+        nochange：不做任何改变，原样输出
+        underline_to_camel：下划线转驼峰命名 -->
+        <property name="naming" value="underline_to_camel"/>
+        <!-- 自定义继承的 Entity 类全称，带包名 -->
+        <property name="superEntityClass" value="com.voc.common.entity.BaseEntity"/>
+        <!-- 自定义基础的 Entity 类，公共字段 【数组】 -->
+        <property name="superEntityColumns">
+            <set>
+                <value>create_time</value>
+                <value>create_id</value>
+                <value>update_time</value>
+                <value>update_id</value>
+            </set>
+        </property>
+        <!-- 【实体】是否生成字段常量(值为数据库表中的列名称)（默认 false） -->
+        <property name="entityColumnConstant" value="false"/>
+        <!-- 自定义继承的Controller类全称，带包名 -->
+        <property name="superControllerClass" value="com.voc.common.controller.BaseController"/>
+        <!--  需要包含的表名（与 exclude 二选一配置） -->
+        <!--<property name="include">-->
+            <!--<set>-->
+                <!--<value>sys_role</value>-->
+                <!--<value>sys_dictionaries</value>-->
+                <!--<value>sys_user</value>-->
+                <!--<value>test_sys_user2</value>-->
+            <!--</set>-->
+        <!--</property>-->
+        <!-- 需要排除的表名（与 include 二选一配置）-->
+        <!--// TODO: 2017/3/29 0029 12:30 Bug 排除存在问题，指定一个表时 报 表不存在错误，能正常排除输出；指定两个以上时 输出所有表文件-->
+        <property name="exclude">
+            <set>
+                <value>sys_user</value>
+                <value>sys_role</value>
+                <value>sys_user_info</value>
+                <value>sys_dictionaries</value>
+                <value>sys_tt</value>
+            </set>
+        </property>
+    </bean>
+
+    <!-- 包 相关配置 -->
+    <bean id="packageConfig" class="com.baomidou.mybatisplus.generator.config.PackageConfig">
+        <!-- 父包名 -->
+        <property name="parent" value="com.voc"/>
+
+        <!-- 父包下模块名,默认为 null -->
+        <property name="moduleName" value="system"/>
+
+        <!-- Entity包名 -->
+        <property name="entity" value="entity"/>
+
+        <!-- Mapper包名 -->
+        <property name="mapper" value="dao"/>
+
+        <!-- Mapper XML包名 -->
+        <property name="xml" value="mapper"/>
+
+        <!-- Service包名 -->
+        <property name="service" value="service"/>
+
+        <!-- Service Impl包名 -->
+        <property name="serviceImpl" value="service.impl"/>
+
+        <!-- Controller包名 -->
+        <property name="controller" value="controller"/>
+    </bean>
+
+    <!-- 模板 相关配置 -->
+    <!-- 自定义模板配置，可以 copy 源码 mybatis-plus/src/main/resources/template 下面内容修改，
+    放置自己项目的 src/main/resources/template 目录下, 默认名称一下可以不配置，也可以自定义模板名称 -->
+    <bean id="templateConfig" class="com.baomidou.mybatisplus.generator.config.TemplateConfig">
+        <property name="entity" value="/template/reverse/entity.java.vm"/>
+        <property name="mapper" value="/template/reverse/mapper.java.vm"/>
+        <property name="xml" value="/template/reverse/mapper.xml.vm"/>
+        <property name="service" value="/template/reverse/service.java.vm"/>
+        <property name="serviceImpl" value="/template/reverse/serviceImpl.java.vm"/>
+        <property name="controller" value="/template/reverse/controller.java.vm"/>
+    </bean>
+
+    <!-- 注入自定义配置 -->
+    <bean id="reverseGeneratedConfig" class="com.voc.toolkit.ReverseGeneratedConfig">
+        <property name="developerKits" value="IntelliJ IDEA"/>
+        <property name="author" value="Wu Yujie"/>
+        <property name="email" value="coffee377@dingtalk.com"/>
+    </bean>
+</beans>

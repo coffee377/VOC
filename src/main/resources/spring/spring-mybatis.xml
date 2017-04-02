@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 配置 sqlSessionFactory -->
+    <!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+    <!-- 使用 MyBatis Plus 增强 -->
+    <bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean">
+
+        <!-- 配置数据源 -->
+        <property name="dataSource" ref="${spring.dataSource}"/>
+
+        <!-- 自动扫描 sql 配置文件:mapper需要的xml文件-->
+        <property name="mapperLocations" value="classpath:com/voc/*/mapper/*.xml" />
+
+        <!-- 加载 mybatis 的全局配置文件(可无) -->
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
+
+        <!-- 自动扫描 entity 包 使用别名 -->
+        <property name="typeAliasesPackage" value="com.voc.*.entity"/>
+
+
+        <!-- 以上配置和传统 Mybatis 一致 ,下面是 Mybatis Plus 配置 -->
+
+        <!-- 插件配置 -->
+        <property name="plugins">
+            <array>
+                <!-- 分页插件配置 -->
+                <bean id="paginationInterceptor" class="com.baomidou.mybatisplus.plugins.PaginationInterceptor">
+                    <!-- 指定数据库方言 -->
+                    <property name="dialectType" value="mysql"/>
+                </bean>
+                <!-- 如需要开启其他插件，可配置于此 -->
+            </array>
+        </property>
+
+        <!-- MP 全局配置注入 -->
+        <property name="globalConfig" ref="globalConfig"/>
+    </bean>
+
+    <!-- 定义 MP 全局策略 -->
+    <bean id="globalConfig" class="com.baomidou.mybatisplus.entity.GlobalConfiguration">
+        <!-- 主键策略配置 -->
+        <!-- 可选参数
+            AUTO->`0`("数据库ID自增")
+            INPUT->`1`(用户输入ID")
+            ID_WORKER->`2`("全局唯一ID")
+            UUID->`3`("全局唯一ID")
+        -->
+        <property name="idType" value="3"/>
+
+        <!-- 数据库类型配置 -->
+        <!-- 可选参数（默认mysql）
+            MYSQL->`mysql`
+            ORACLE->`oracle`
+            DB2->`db2`
+            H2->`h2`
+            HSQL->`hsql`
+            SQLITE->`sqlite`
+            POSTGRE->`postgresql`
+            SQLSERVER2005->`sqlserver2005`
+            SQLSERVER->`sqlserver`
+        -->
+        <property name="dbType" value="mysql"/>
+
+        <!-- 全局表为下划线命名设置 true -->
+        <property name="dbColumnUnderline" value="true"/>
+
+    </bean>
+
+    <!-- 配置扫描 Dao 接口包，动态实现 Dao 接口，注入到 spring 容器中 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 注入 sqlSessionFactory -->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+
+        <!-- Dao 接口所在包名 -->
+        <property name="basePackage" value="com.voc.*.dao"/>
+    </bean>
+
+
+
+</beans>

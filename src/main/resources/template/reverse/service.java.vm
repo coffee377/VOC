@@ -1,0 +1,15 @@
+package ${package.Service};
+
+import ${package.Entity}.${entity};
+import ${superServiceClassPackage};
+
+/**
+ * ${table.comment} 业务层接口
+ * Created with ${cfg.developerKits}.
+ * Author:  ${cfg.author}
+ * Email:   ${cfg.email}
+ * Time:    ${cfg.createTime}
+ */
+public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
+	
+}
